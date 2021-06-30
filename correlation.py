@@ -1,8 +1,9 @@
 # Add the functions in this file
 def load_journal(jsonfile):
     import json
-    parsed = json.loads(jsonfile)
-    return parsed
+    with open(jsonfile, encoding='utf-8') as data_file:
+    data = json.loads(data_file.read())
+    return data
 
 
 def compute_phi(filename, event):
@@ -10,12 +11,12 @@ def compute_phi(filename, event):
     n11, n00, n10, n01 = 0, 0, 0, 0
     n1p, n0p, np1, np0 = 0, 0, 0, 0
     journal = load_journal(filename)
-    for i in range(90):
+    for i in range(91):
         if journal[i]['squirrel'] is true:
             np1 += 1
         else:
             np0 += 1
-    for i in range(90):
+    for i in range(91):
         if event in journal[i]['events']:
             n1p += 1
             if journal[i]['squirrel'] is true:
@@ -36,7 +37,7 @@ def compute_correlations(filename):
     correlation_dict = {}
     events = []
     journal = load_journal(filename)
-    for i in range(90):
+    for i in range(91):
         for event in journal[i]['events']:
             if event not in events:
                 events.append(event)
