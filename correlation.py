@@ -38,7 +38,8 @@ def compute_correlations(filename):
     journal = load_journal(filename)
     for i in range(90):
         for event in journal[i]['events']:
-            events.append(event) if event not in events
+            if event not in events:
+                events.append(event)
     for event in events:
         correlation_dict[event] = compute_phi(filename, event)
     return correlation_dict
