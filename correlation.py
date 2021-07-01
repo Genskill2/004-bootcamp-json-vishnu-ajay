@@ -2,7 +2,7 @@
 def load_journal(jsonfile):
     import json
     with open(jsonfile, encoding='utf-8') as data_file:
-    data = json.loads(data_file.read())
+        data = json.loads(data_file.read())
     return data
 
 
