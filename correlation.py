@@ -12,20 +12,20 @@ def compute_phi(filename, event):
     n1p, n0p, np1, np0 = 0, 0, 0, 0
     journal = load_journal(filename)
     for i in range(91):
-        if journal[i]['squirrel'] is true:
+        if journal[i]['squirrel'] is True:
             np1 += 1
         else:
             np0 += 1
     for i in range(91):
         if event in journal[i]['events']:
             n1p += 1
-            if journal[i]['squirrel'] is true:
+            if journal[i]['squirrel'] is True:
                 n11 += 1
             else:
                 n10 += 1
         else:
             n0p += 1
-            if journal[i]['squirrel'] is true:
+            if journal[i]['squirrel'] is True:
                 n01 += 1
             else:
                 n00 += 1
